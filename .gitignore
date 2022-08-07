@@ -1,2 +1,3 @@
 *.exe
 Test_file.cpp
+.gitignore
