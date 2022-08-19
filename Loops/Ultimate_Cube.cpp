@@ -1,4 +1,6 @@
-/*  n==7(odd)
+/*  Author : Akashdeep -k
+Problem : Cube Pattern
+    n==7(odd)
     1 1 1 1 1 1 1
     1 1           1
     1   1           1
