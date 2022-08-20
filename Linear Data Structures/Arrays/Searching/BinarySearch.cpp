@@ -1,4 +1,4 @@
-//Binary Search
+// Binary Search
 #include <iostream>
 using namespace std;
 int binary_search(int arr[], int size, int element)
@@ -6,7 +6,7 @@ int binary_search(int arr[], int size, int element)
     int low, mid, high;
     low = 0;
     high = size - 1;
-    mid = (low + high) / 2;
+    mid = low + (high-low)/2;
     // searching started
     while (low <= high)
     {
@@ -22,9 +22,10 @@ int binary_search(int arr[], int size, int element)
         {
             high = mid - 1;
         }
+         mid = low + (high-low)/2;
     }
     // searching ended
-    return -1;
+    return -2;
 }
 int main()
 {
