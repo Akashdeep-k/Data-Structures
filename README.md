@@ -1,3 +1,3 @@
 💻🖱️
-# Data-Structures
-In this repository, I will be adding the code/programmes🧑‍💻 I explored while learning Data Structures✨
+## Data-Structures
+#### Part of my daily plan for studying C++ code.
