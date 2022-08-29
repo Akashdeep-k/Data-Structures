@@ -11,7 +11,7 @@ int length_of_string(string s){
 }
 int main(){
     string s;
-    cin>>s;
+    getline(cin, s);
     cout<<length_of_string(s)<<endl;
     return 0;
 }
