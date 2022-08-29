@@ -1,48 +1,55 @@
 //To check if a string is palindrome or not 
 //Not case sensitive
-//Eg : HelloOLLeh is a Palindrome
+//consider alphanumeric characters
+//ignore white spaces and special characters
 #include<iostream>
+#include<string>
 using namespace std;
-int Length_of_string(string str){
-    int len = 0;
-    for (int i = 0; str[i]!= '\0'; i++)
-    {
-        len++;
+bool Valid_character(char ch){
+    if((ch>='a'&&ch<='z')||(ch>='1'&&ch<='9')||(ch>='A'&&ch<='Z')){
+        return true;
     }
-    return len;
+    return false;
 }
 char ToLowerCase(char ch){
-    if(ch>='a'&&ch<='z'){
+    if((ch>='a'&&ch<='z')||(ch>='1'&&ch<='9')){
         return ch;
     }
     else{
         return ch - 'A' + 'a';
     }
 }
-bool Palindrome(string str, int len){
-    for (int i = 0; i < len/2; i++)
+bool Palindrome(string str){
+    for (int i = 0; i < str.length()/2; i++)
     {
-        if(str[i]!=str[len-1-i]){
+        if(str[i]!=str[str.length()-1-i]){
             return false;
         }
     }
     return true;
 }
 void Check_palindrome(string str){
-    int len = Length_of_string(str);
-    for(int i = 0; i < len; i++){
-        str[i] = ToLowerCase(str[i]);
+    string temp = "";
+    for(int i = 0; i < str.length(); i++){
+        if(Valid_character(str[i])){
+            temp.push_back(str[i]);
+        }
     }
-    if(Palindrome(str, len)){
-        cout<<"The string is palindrome"<<endl;
+    for (int i = 0; i < temp.length(); i++)
+    {
+        temp[i] = ToLowerCase(temp[i]);
+    }
+    
+    if(Palindrome(temp)){
+        cout<<str<<" & "<<temp<<" is palindrome"<<endl;
     }
     else{
-        cout<<"The string is not a palindrome"<<endl;
+        cout<<str<<" & "<<temp<<" is not a palindrome"<<endl;
     }
 }
 int main(){
     string str;
-    cin>>str;
+    getline(cin, str);
     Check_palindrome(str);
     return 0;
 }
