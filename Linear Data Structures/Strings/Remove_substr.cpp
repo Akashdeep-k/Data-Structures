@@ -5,7 +5,12 @@
 using namespace std;
 void remove_substr(string main, string sub){
     while(main.length()!=0 && sub.length() < main.length()){
-        main.erase(main.find(sub), sub.length());
+        if(main.find(sub) > main.length()){
+            break;
+        }
+        else{
+            main.erase(main.find(sub), sub.length());
+        }
     }
     cout<<main<<endl;
 }
