@@ -18,18 +18,15 @@ void traversal(node* &head){
     }
     cout<<endl;    
 }
-void insertion(node* &head, int d, int ind){
+void insertion(node* &head, int d){
     node* n = new node(d);
-    if(ind==0){
-        n->link = head;
+    if(head==NULL){
         head = n;
     }
     else{
         node* temp = head;
-        int i = 0;
-        while(i != ind-1){
+        while(temp->link!=NULL){
             temp = temp->link;
-            i++;
         }
             temp->link = n;
     }
@@ -41,7 +38,7 @@ int main(){
     for (int i = 0; i < n; i++)
     {
         cin>>d;
-        insertion(head, d, i);
+        insertion(head, d);
     }
     traversal(head);
     return 0;
