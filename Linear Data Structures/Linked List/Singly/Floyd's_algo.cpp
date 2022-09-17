@@ -11,9 +11,10 @@ class Node{
         this->next = NULL;
     }
 };
-bool detect_loop(Node* &head){
+bool get_starting_node(Node* &head){
     if(head==NULL)
     return false;
+
     else{
         Node* fast = head;
         Node* slow = head;
@@ -22,20 +23,21 @@ bool detect_loop(Node* &head){
             if(fast!=NULL)
             fast = fast->next;
             slow = slow->next;
-            if(slow == fast)
-            return true;
+            if(slow == fast){
+                slow = head;
+                while(slow!=fast){
+                    slow = slow->next;
+                    fast = fast->next;
+                }
+                cout<<"Loop starts at : "<<slow->data<<endl;
+                return true;
+            }
         }
         return false;
     }
 }
 int main(){
     Node* head;
-    //make a linked list
-    if(detect_loop(head)){
-        cout<<"True"<<endl;
-    }
-    else{
-        cout<<"False"<<endl;
-    }
+    //make a linked list and call the function
     return 0;
 }
