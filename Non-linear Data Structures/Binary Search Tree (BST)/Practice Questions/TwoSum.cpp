@@ -1,3 +1,4 @@
+//Two Sum In BST
 #include<iostream>
 #include<vector>
 using namespace std;
@@ -57,7 +58,7 @@ pair<int, int> TwoSum(node* root, int sum){
 
     int i = 0;
     int j = sorted.size()-1;
-    while(i <= j){
+    while(i < j){
         if((sorted[i] + sorted[j]) == sum){
             return {sorted[i], sorted[j]};
         }
