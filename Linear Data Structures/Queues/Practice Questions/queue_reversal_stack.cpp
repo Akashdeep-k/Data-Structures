@@ -2,15 +2,6 @@
 #include<queue>
 #include<stack>
 using namespace std;
-void reverse(queue<int> q){
-    if(q.empty() == true){
-        return ;
-    }
-    int f = q.front();
-    q.pop();
-    reverse(q);
-    q.push(f);
-}
 int main(){
     queue<int> q;
     stack<int> s;
