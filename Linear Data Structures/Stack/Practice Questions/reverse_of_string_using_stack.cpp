@@ -3,19 +3,22 @@
 #include<iostream>
 #include<stack>
 using namespace std;
-int main(){
-    string str;
-    cin>>str;
+void revstr(string &str){
     stack<char> s;
     for (int i = 0; i < str.length(); i++)
     {
         s.push(str[i]);
     }
-    string reversed_str = "";
+    str = "";
     while(s.empty() == false){
-        reversed_str.push_back(s.top());
+        str.push_back(s.top());
         s.pop();
     }
-    cout<<reversed_str<<endl;
+}
+int main(){
+    string str;
+    cin>>str;
+    revstr(str);
+    cout<<str;
     return 0;
 }
