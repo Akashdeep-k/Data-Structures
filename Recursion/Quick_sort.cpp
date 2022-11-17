@@ -1,38 +1,24 @@
 #include<iostream>
 using namespace std;
 int partition(int arr[], int s, int e){
-    int pivot = arr[s];
-    int count = 0;
-    for (int i = s+1; i <= e; i++)
+    int pivot = arr[e];
+    int j = s-1;
+    for (int i = s; i < e; i++)
     {
-        if(arr[i] <= pivot)
-        count++;
-    }
-    int pivot_ind = s + count;
-    swap(arr[s], arr[pivot_ind]);
-    int i = s;
-    int j = e;
-    while(i < pivot_ind && j > pivot_ind){
-        while(arr[i] <= pivot && i < pivot_ind){
-            i++;
-        }
-        while (arr[j] > pivot && j > pivot_ind)
-        {
-            j--;
-        }
-        if(arr[i] > pivot && arr[j] <= pivot && i < pivot_ind && j > pivot_ind){
-            swap(arr[i++], arr[j--]);
+        if(arr[i]<pivot){
+            j++;
+            swap(arr[i], arr[j]);
         }
     }
-    return pivot_ind;
+    swap(arr[j+1], arr[e]);
+    return j+1;
 }
-void quick_sort(int arr[], int s, int e){
-    if(s>=e){
-        return ;
+void quickSort(int arr[], int s, int e){
+    if(s<e){
+        int pi = partition(arr, s, e);
+        quickSort(arr, s, pi-1);
+        quickSort(arr, pi+1, e);
     }
-    int pi = partition(arr, s, e);
-    quick_sort(arr, s, pi - 1);
-    quick_sort(arr, pi + 1, e);
 }
 int main(){
     int n;
@@ -42,7 +28,7 @@ int main(){
     {
         cin>>arr[i];
     }
-    quick_sort(arr, 0, n-1);
+    quickSort(arr, 0, n-1);
     for (int i = 0; i < n; i++)
     {
         cout<<arr[i]<<" ";
