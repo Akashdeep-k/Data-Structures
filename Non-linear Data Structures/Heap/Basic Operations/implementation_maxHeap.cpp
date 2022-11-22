@@ -53,7 +53,7 @@ public:
         }
         else
         {
-            cout << "Heap Overflow" << endl;
+            cout << "Heap Underflow" << endl;
         }
     }
     void HeapSort(){
