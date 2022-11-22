@@ -20,8 +20,7 @@ public:
     {
         if (size < n - 1)
         {
-            arr[++size] = data;
-            int i = size;
+            int i = ++size;
             while (data > arr[i / 2] && i > 1)
             {
                 arr[i] = arr[i / 2];
@@ -34,8 +33,32 @@ public:
             cout << "Heap Overflow" << endl;
         }
     }
+    void Delete()
+    {
+        if (size != 0)
+        {
+            swap(arr[1], arr[size]);
+            int i = 1;
+            int j = 2 * i;
+            while (j < size)
+            {
+                if (arr[j] < arr[j + 1] && (j+1) < size)
+                    j = j + 1;
+                if (arr[i] < arr[j])
+                    swap(arr[i], arr[j]);
+                i = j;
+                j = 2 * i;
+            }
+            size--;
+        }
+        else
+        {
+            cout << "Heap Overflow" << endl;
+        }
+    }
     void Display()
     {
+        cout<<"The elements in heap are : ";
         for (int i = 1; i <= size; i++)
         {
             cout << arr[i] << " ";
@@ -45,9 +68,12 @@ public:
 };
 int main()
 {
-    int size = 20;
+    cout<<"Enter size of heap : ";
+    int size;
+    cin>>size;
     heap h1(size);
     int d;
+    cout<<"Enter sequence for elements of heap : ";
     for (int i = 0; i < size; i++)
     {
         cin >> d;
