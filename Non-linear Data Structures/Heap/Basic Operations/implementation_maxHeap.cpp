@@ -1,4 +1,4 @@
-// Max heap implementation
+// Max heap implementation with Insert, Delete, Display, HeapSort functions
 #include <iostream>
 using namespace std;
 class heap
@@ -56,6 +56,25 @@ public:
             cout << "Heap Overflow" << endl;
         }
     }
+    void HeapSort(){
+        int temp = size;
+        while (temp != 0)
+        {
+            swap(arr[1], arr[temp]);
+            int i = 1;
+            int j = 2 * i;
+            while (j < temp)
+            {
+                if (arr[j] < arr[j + 1] && (j+1) < temp)
+                    j = j + 1;
+                if (arr[i] < arr[j])
+                    swap(arr[i], arr[j]);
+                i = j;
+                j = 2 * i;
+            }
+            temp--;
+        }
+    }
     void Display()
     {
         cout<<"The elements in heap are : ";
@@ -79,6 +98,8 @@ int main()
         cin >> d;
         h1.Insert(d);
     }
+    h1.Display();
+    h1.HeapSort();
     h1.Display();
     return 0;
 }
