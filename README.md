@@ -1,9 +1,7 @@
 💻🖱️
 # Data-Structures
-<b>Part of my daily plan for studying C++ code.</b>
-
+<b>Part of my daily plan for studying C++ code</b>
 ## Contents
-
 - [📂Functions](./Functions/)
 - [📂Linear Data Structures](./Linear%20Data%20Structures/)
     - [📁Arrays](./Linear%20Data%20Structures/Arrays/)
