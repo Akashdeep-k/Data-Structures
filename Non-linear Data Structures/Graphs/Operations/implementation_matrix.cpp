@@ -1,4 +1,4 @@
-// Unweighted graph representation with adjacency matrix
+// Weighted digraph representation with adjacency matrix
 // Space Complexity : O(n^2)
 #include <iostream>
 using namespace std;
@@ -18,10 +18,9 @@ public:
             this->arr[i] = new int[nodes]{0};
         }
     }
-    void InsertEdge(int s, int e)
+    void InsertEdge(int s, int e, int w)
     {
-        arr[s - 1][e - 1] = 1;
-        arr[e - 1][s - 1] = 1;
+        arr[s - 1][e - 1] = w;
     }
     void Printg()
     {
@@ -54,10 +53,10 @@ int main()
     cin >> edges;
     for (int i = 0; i < edges; i++)
     {
-        cout << "Enter start, end of edge " << i + 1 << endl;
-        int s, e;
-        cin >> s >> e;
-        g.InsertEdge(s, e);
+        cout << "Enter start, end, weight of edge " << i + 1 << endl;
+        int s, e, w;
+        cin >> s >> e >> w;
+        g.InsertEdge(s, e, w);
     }
     g.Printg();
     return 0;
